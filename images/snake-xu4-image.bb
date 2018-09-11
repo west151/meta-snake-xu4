@@ -159,6 +159,12 @@ MQTT_DEV = " \
     python-paho-mqtt \
 "
 
+SDR = " \
+    volk \
+    libhackrf \
+    rtl-sdr \
+"
+
 IMAGE_INSTALL += " \
     ${DEV_SDK_INSTALL} \
     ${I2C_TOOLS} \
@@ -177,7 +183,8 @@ IMAGE_INSTALL += " \
     ${OPENMP_DEV} \
     ${MQTT} \
     ${MQTT_DEV} \
+    ${SDR} \
 "
 
-export IMAGE_BASENAME = "snake-base-image"
+export IMAGE_BASENAME = "snake-xu4-image"
 
