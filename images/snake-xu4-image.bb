@@ -4,54 +4,8 @@ LICENSE = "MIT"
 
 require console-image.bb
 
-DEV_SDK_INSTALL = " \
-    binutils \
-    binutils-symlinks \
-    coreutils \
-    cpp \
-    cpp-symlinks \
-    diffutils \
-    file \
-    g++ \
-    g++-symlinks \
-    gcc \
-    gcc-symlinks \
-    gdb \
-    gdbserver \
-    gettext \
-    ldd \
-    libstdc++ \
-    libstdc++-dev \
-    libtool \
-    make \
-    perl-modules \
-    pkgconfig \
-    python-modules \
-"
-
 I2C_TOOLS = " \
     i2c-tools \
-"
-
-FONTS = " \
-    fontconfig \
-    fontconfig-utils \
-    ttf-bitstream-vera \
-"
-
-FONTS_DEV = " \
-    fontconfig-dev \
-"
-
-TSLIB = " \
-    tslib \
-    tslib-conf \
-    tslib-calibrate \
-    tslib-tests \
-"
-
-TSLIB_DEV = " \
-    tslib-dev \
 "
 
 QT_TOOLS = " \
@@ -133,11 +87,6 @@ QT5_DEV_WEBENGINE_PKGS = " \
     qtwebengine-mkspecs \
 "
 
-SDR = " \
-    asn1c \
-    libfftwf \
-"
-
 OPENMP = " \
     libgomp \
 "
@@ -163,22 +112,18 @@ SDR = " \
     volk \
     libhackrf \
     rtl-sdr \
+    asn1c \
+    libfftwf \
 "
 
 IMAGE_INSTALL += " \
-    ${DEV_SDK_INSTALL} \
     ${I2C_TOOLS} \
-    ${FONTS} \
-    ${FONTS_DEV} \
-    ${TSLIB} \
-    ${TSLIB_DEV} \
     ${QT_TOOLS} \
     ${QT_DEV_TOOLS} \
     ${QT5_PKGS} \
     ${QT5_DEV_PKGS} \
     ${QT5_3D_PKGS} \
     ${QT5_3D_DEV_PKGS} \
-    ${SDR} \
     ${OPENMP} \
     ${OPENMP_DEV} \
     ${MQTT} \

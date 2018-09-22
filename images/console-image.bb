@@ -66,6 +66,10 @@ EXTRA_TOOLS_INSTALL = " \
     unzip \
     wget \
     zip \
+    e2fsprogs-resize2fs \
+    nano \
+    mc \
+    htop \
 "
 
 IMAGE_INSTALL += " \
