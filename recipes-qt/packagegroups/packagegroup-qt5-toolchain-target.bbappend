@@ -10,5 +10,4 @@ USE_CHARTS = " \
 "
 
 RDEPENDS_${PN} += " \
-    ${USE_CHARTS} \
 "
