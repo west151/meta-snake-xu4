@@ -80,6 +80,7 @@ SDR = " \
     asn1c \
     libfftwf \
     fftw-dev \
+    qsweep-srv \
 "
 
 IMAGE_INSTALL += " \
