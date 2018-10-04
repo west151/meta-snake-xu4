@@ -1,4 +1,4 @@
-SUMMARY = "QSweep"
+SUMMARY = "QSweepserver"
 HOMEPAGE = "gis1501@gmail.com"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -20,11 +20,12 @@ qmake_base() {
 }
 
 do_install() {
-    install -d ${WORKDIR}/opt/qsweep/bin
-    install -m 0755 ${S}/bin/* ${WORKDIR}/opt/qsweep/bin
-    install -m 0755 ${S}/install/config/qsweepserver.config ${WORKDIR}/opt/qsweep/bin/qsweepserver.config
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/bin/qsweepserver ${D}${bindir}
 }
 
-FILES_${PN} = "/opt/qsweep/bin"
+FILES_${PN} = " \
+    ${bindir} \
+"
 
 RDEPENDS_${PN} = "qtbase-plugins"
