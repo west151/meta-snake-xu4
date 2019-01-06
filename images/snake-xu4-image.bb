@@ -74,7 +74,6 @@ MQTT_DEV = " \
 "
 
 SDR = " \
-    volk \
     libhackrf \
     rtl-sdr \
     asn1c \

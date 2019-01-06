@@ -3,28 +3,30 @@
 include conf/machine/include/samsung-exynos.inc
 include conf/machine/include/odroid-default-settings.inc
 
-DEFAULTTUNE = "cortexa15hf-neon"
+DEFAULTTUNE = "cortexa15thf-neon-vfpv4"
 include conf/machine/include/tune-cortexa15.inc
-
-EXTRA_IMAGEDEPENDS += "secure-odroid"
 
 UBOOT_FDT_LOADADDR = "0x40800000"
 UBOOT_LOADADDR = "0x40007FC0"
 UBOOT_LOADADDRESS = "0x40007FC0"
-UBOOT_CONSOLE = "console=ttySAC2,115200"
-UBOOT_KERNEL_NAME = "zimage"
+UBOOT_KERNEL_NAME = "zImage"
 
 WKS_FILE ?= "odroid_xu-u-boot.wks"
 
-IMAGE_FSTYPES_append = " wic wic.xz"
+MACHINE_FEATURES_append = " alsa screen"
 
-# Do not update fstab file when using wic images
-WIC_CREATE_EXTRA_ARGS ?= "--no-fstab-update"
+VIRTUAL-RUNTIME_mesa = "mesa"
+PREFERRED_PROVIDER_virtual/gpu = "mali-t62x"
 
-IMAGE_BOOT_FILES = "zImage ${UBOOT_SCRIPT} ${KERNEL_DEVICETREE}"
+PREFERRED_PROVIDER_virtual/egl = "${PREFERRED_PROVIDER_virtual/gpu}" 
+PREFERRED_PROVIDER_virtual/libgbm = "${PREFERRED_PROVIDER_virtual/gpu}"
+PREFERRED_PROVIDER_virtual/libgles1 = "${PREFERRED_PROVIDER_virtual/gpu}"
+PREFERRED_PROVIDER_virtual/libgles2 = "${PREFERRED_PROVIDER_virtual/gpu}"
+PREFERRED_PROVIDER_virtual/libopencl = "${PREFERRED_PROVIDER_virtual/gpu}"
+PREFERRED_PROVIDER_virtual/libgl = "${VIRTUAL-RUNTIME_mesa}"
+PREFERRED_PROVIDER_virtual/mesa = "${VIRTUAL-RUNTIME_mesa}"
 
-# wic default support
-WKS_FILE_DEPENDS ?= " \
-    e2fsprogs-native \
-    bmap-tools-native \
+XSERVER_append = " \
+    ${@bb.utils.contains('MACHINE_FEATURES', 'mali', 'xf86-video-armsoc', '', d)} \
 "
+
