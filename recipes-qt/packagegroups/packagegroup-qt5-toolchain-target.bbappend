@@ -9,5 +9,11 @@ USE_CHARTS = " \
     qtcharts-mkspecs \
 "
 
+RDEPENDS_${PN}_remove = " \
+    qtwebkit-dev \
+    qtwebkit-mkspecs \
+    qtwebkit-qmlplugins \
+"
+
 RDEPENDS_${PN} += " \
 "
