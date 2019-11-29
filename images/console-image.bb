@@ -1,5 +1,5 @@
 SUMMARY = "A console development image with some C/C++ dev tools"
-HOMEPAGE = "http://www.jumpnowtek.com"
+HOMEPAGE = "gis1501@gmail.com"
 LICENSE = "MIT"
 
 IMAGE_FEATURES += "package-management"
