@@ -15,7 +15,7 @@ PREFERRED_PROVIDER_udev = "eudev"
 # the default kernel is 4.16
 #PREFERRED_VERSION_linux-stable = "4.14.%"
 
-MACHINE = "odroid-xu4"
+MACHINE ??= "odroid-xu4"
 
 # use eMMC instead of SD card, changes boot.scr
 # EMMC_BOOT = "1"
